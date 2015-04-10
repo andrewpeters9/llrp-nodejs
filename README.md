@@ -1,6 +1,8 @@
 llrp-nodejs
 ==========
 
+**This fork is with modified Add ROSPEC message for Impinj Speedway R420**
+
 Nodejs module to read RFID tags by connecting to a RFID reader through LLRP protocol.
 
 ### Authors
