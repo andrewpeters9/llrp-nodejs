@@ -39,9 +39,11 @@ var llrpMain = function (config) {
 	var client = null;
 
 	//Defined message buffers. Brute force, I know I know.
+  // TODO: Change with config.
 	var bSetReaderConfig = new Buffer('040300000010000000000000e2000580', 'hex');
 	var bEnableEventsAndReport = new Buffer('04400000000a00000000', 'hex');
-	var bAddRoSpec = new Buffer('04140000005d0000000000b1005300000001000000b2001200b300050000b60009000000000000b700180001000000b8000901000003e800ba000700010100ed001f01000000ee000bffc0015c0005c003ff000d000067ba0000008e01', 'hex');
+  // Impinj Specific AddRoSpec
+  var bAddRoSpec = new Buffer('0414000000500000000400b1004600000001000000b2001200b300050000b60009000000000000b700180001000000b80009000000000000ba000700090100ed001201000100ee000bffc0015c0005c0', 'hex');
 	var bEnableRoSpec = new Buffer('04180000000e0000000000000001', 'hex');
 	var bStartRoSpec = new Buffer('04160000000e0000000000000001', 'hex');
 	var bKeepaliveAck = new Buffer('04480000000a00000000', 'hex');
