@@ -57,4 +57,7 @@ reader.on('didSeeTag', function (tag) {
 	console.log('TAG: ' + tag.tagID);
 });
 
+// This fork adds a method to delete the rospec and close the connection.
+reader.disconnect();
+
 ```
