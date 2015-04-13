@@ -47,6 +47,8 @@ var llrpMain = function (config) {
 	var bEnableRoSpec = new Buffer('04180000000e0000000000000001', 'hex');
 	var bStartRoSpec = new Buffer('04160000000e0000000000000001', 'hex');
 	var bKeepaliveAck = new Buffer('04480000000a00000000', 'hex');
+  var bDeleteRoSpec = new Buffer('04150000000e0000000000000001', 'hex');
+  var bCloseConnection = new Buffer('040e0000000a00000000', 'hex');
 
 	// ====================
 	// Public Methods
@@ -120,6 +122,9 @@ var llrpMain = function (config) {
 						//send KEEPALIVE_ACK
 						writeMessage(client, bKeepaliveAck);
 						break;
+          case messageC.DELETE_ROSPEC_RESPONSE:
+            writeMessage(client, bCloseConnection);
+            break;
 					default:
 						//Default, doing nothing.
 					}
@@ -149,6 +154,13 @@ var llrpMain = function (config) {
 			});
 		});
 	};
+
+  this.disconnect = function() {
+    process.nextTick(function() {
+      writeMessage(client, bDeleteRoSpec);
+      resetIsStartROSpecSent();
+    });
+  };
 
 	// ====================
 	// Helper Methods
