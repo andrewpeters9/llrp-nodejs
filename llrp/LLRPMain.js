@@ -56,8 +56,8 @@ var llrpMain = function (config) {
 
   this.connect = function () {
 
-    // timeout after 60 seconds.
-    socket.setTimeout(60000, function () {
+    // timeout after 15 mins.
+    socket.setTimeout(15 * 60 * 1000, function () {
       if (log) {
         console.log('Connection timeout');
       }
